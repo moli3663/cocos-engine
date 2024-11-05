@@ -147,6 +147,8 @@ export class Toggle extends Button {
             if (value || (!group.anyTogglesChecked() && !group.allowSwitchOff)) {
                 this._isChecked = true;
                 group.notifyToggleCheck(this, emitEvent);
+            }else if (!value && !group.anyTogglesChecked() && group.allowSwitchOff) {
+                group.notifyToggleCheck(this, emitEvent);
             }
         }
 
